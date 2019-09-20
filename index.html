@@ -1,0 +1,17 @@
+<script type="text/javascript">
+$(function(){
+
+  if ($('#content').length > 0){}else{$('.topGo').css('display','none');}
+
+	$('.topGo').bind('click', function(){
+		$('html, body').animate({ scrollTop:'0' },500, 'easeInOutExpo',function(){
+			$('header').removeClass('moveSlide');
+		});			
+	});
+  
+});
+</script>
+
+
+
+<div class="topGo"><a href="javascript:;"><img src="../images/btn/btn_topgo.png" alt="go" /></a></div>
