@@ -1,13 +1,49 @@
 <script type="text/javascript">
 $(function(){
-
-  if ($('#content').length > 0){}else{$('.topGo').css('display','none');}
-
+	
+	if ($('#content').length > 0){}else{$('.topGo').css('display','none');}
+	
+	
+	//맨위로 이동1
 	$('.topGo').bind('click', function(){
 		$('html, body').animate({ scrollTop:'0' },500, 'easeInOutExpo',function(){
 			$('header').removeClass('moveSlide');
 		});			
 	});
+	
+	
+	
+	
+	
+	
+	
+	//맨위로 이동2
+	var topR = function(){
+		var $wth = $(window).width();
+		if ($wth > 1760){
+			$('#topGo').css({'right':'250px'});
+		} else {
+			$('#topGo').css({'right':'20px'},300);
+		}
+	}; 
+	topR();
+
+	$(window).scroll(function() {
+		var $wTop = $(window).scrollTop();
+		var $ev1Top = $('#event1').offset().top;
+		if ($wTop < $ev1Top){
+			$('#topGo').stop().css({'z-index':'-1','opacity':'0'});
+		} else {
+			$('#topGo').stop().css({'z-index':'120','opacity':'1'});
+		}
+	});
+	$('#topGo .topGoBtn').bind('click', function(){
+		$('html, body').animate({ scrollTop:'0' },500, 'easeInOutExpo');
+	});
+
+	
+	$(window).resize(function () {
+		topR();
   
 });
 </script>
