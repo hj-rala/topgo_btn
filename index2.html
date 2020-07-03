@@ -1,0 +1,49 @@
+/* topGo */
+#topGo {z-index:120; opacity:0; position:fixed;  bottom:140px; right:250px;
+	-webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;-ms-transition: all 0.3s ease;-o-transition: all 0.3s ease;transition: all 0.3s ease;
+}
+#topGo a {display:block;}
+#topGo a.kakaoGo {margin-bottom:30px; width:240px; height:72px; border-radius:50px; background:#f5e14a; text-align:center;
+	 -webkit-box-shadow: rgba(30,46,62,0.2) 13px 14px 16px; -moz-box-shadow: rgba(30,46,62,0.2) 13px 14px 16px; box-shadow: rgba(30,46,62,0.2) 13px 14px 16px;
+}
+#topGo a.kakaoGo span {padding-left:59px; display:inline-block; font-size:28px; color:#362020; font-weight:500; line-height:77px; letter-spacing:-1px; background:url('../images/main/kakaoGo_v2.png') 0 center no-repeat;}
+#topGo a.topGoBtn {float:right;width:72px; height:72px; border-radius:50%; background:#fff url('../images/main/btn_arrow.png') center center no-repeat; font-size:0;
+	 -webkit-box-shadow: rgba(30,46,62,0.2) 13px 14px 16px; -moz-box-shadow: rgba(30,46,62,0.2) 13px 14px 16px; box-shadow: rgba(30,46,62,0.2) 13px 14px 16px;
+}
+#topGo.bottom {bottom:140px; right:250px;-webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;-ms-transition: all 0.3s ease;-o-transition: all 0.3s ease;transition: all 0.3s ease;}
+
+
+
+
+
+
+//맨위로 이동
+	var topR = function(){
+		var $wth = $(window).width();
+		if ($wth > 1760){
+			$('#topGo').css({'right':'250px'});
+		} else {
+			$('#topGo').css({'right':'20px'},300);
+		}
+	}; 
+	topR();
+
+	$(window).scroll(function() {
+		var $wTop = $(window).scrollTop();
+		var $ev1Top = $('#event1').offset().top;
+		if ($wTop < $ev1Top){
+			$('#topGo').stop().css({'z-index':'-1','opacity':'0'});
+		} else {
+			$('#topGo').stop().css({'z-index':'120','opacity':'1'});
+		}
+	});
+	$('#topGo .topGoBtn').bind('click', function(){
+		$('html, body').animate({ scrollTop:'0' },500, 'easeInOutExpo');
+	});
+  
+  
+  
+  <div id="topGo">
+			<a href="javascript:;" class="kakaoGo"><span>1:1 문의하기</span></a>
+			<a href="javascript:;" class="topGoBtn">맨 위로 이동</a>
+		</div>
